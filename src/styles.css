@@ -1,0 +1,520 @@
+﻿:root {
+  color-scheme: dark;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  background: #000;
+  font-synthesis: none;
+  letter-spacing: -0.035em;
+  --frame: #666;
+}
+
+@font-face {
+  font-family: 'BM Space';
+  src: url('./fonts/bm-space.ttf') format('truetype');
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid transparent;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: currentColor;
+}
+
+button:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 4px;
+}
+
+.site {
+  display: grid;
+  grid-template-columns: clamp(12rem, 22vw, 21rem) minmax(0, 1fr);
+  block-size: 100dvh;
+  border: 1px solid var(--frame);
+}
+
+.sidebar {
+  display: grid;
+  grid-template-rows: minmax(min-content, 1fr) minmax(0, 2fr);
+  min-block-size: 0;
+  border-inline-end: 1px solid var(--frame);
+}
+
+.profile {
+  padding: clamp(0.5rem, 1.5vh, 1rem) clamp(0.75rem, 1.4vw, 1.5rem);
+}
+
+.profile h2 {
+  margin: 0;
+  font: 400 clamp(1.125rem, 2vw, 1.6875rem) / 1.1 'BM Space', 'Courier New', monospace;
+  font-size: round(down, clamp(1.125rem, 2vw, 1.6875rem), 9px);
+  letter-spacing: normal;
+}
+
+.profile p {
+  max-inline-size: 24ch;
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.sidebar-art {
+  min-block-size: 0;
+  border-block-start: 1px solid var(--frame);
+}
+
+.profile-picture {
+  display: block;
+  inline-size: clamp(2.75rem, 8dvh, 5.5rem);
+  block-size: auto;
+  margin-block-start: 0.5rem;
+  border: 1px solid var(--frame);
+}
+
+.profile-account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-start: 0.35rem;
+}
+
+.profile .handle {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.profile-link {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border: 1px solid var(--frame);
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.profile-link:hover,
+.profile-link:focus-visible,
+.topbar button[aria-current] {
+  color: #000;
+  background: #fff;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-inline-size: 0;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.125rem, 1vw, 1rem);
+  padding: 1.25rem;
+  border-block-end: 1px solid var(--frame);
+  font-size: 0.875rem;
+}
+
+.home {
+  display: flex;
+  align-items: flex-start;
+  min-block-size: 0;
+  overflow: auto;
+  padding: 1.25rem;
+}
+
+.intro {
+  max-inline-size: 45rem;
+}
+
+.intro h1,
+.notes-search h1 {
+  margin: 0;
+  font: 400 clamp(1.6875rem, 4vw, 3.375rem) / 1.1 'BM Space', 'Courier New', monospace;
+  font-size: round(down, clamp(1.6875rem, 4vw, 3.375rem), 9px);
+  letter-spacing: normal;
+}
+
+.intro p {
+  max-inline-size: 62ch;
+  margin: 0.75rem 0 0;
+  line-height: 1.55;
+}
+
+.home-stack {
+  display: grid;
+  gap: 1.25rem;
+  inline-size: min(100%, 45rem);
+  min-inline-size: 0;
+}
+
+.home-section {
+  min-inline-size: 0;
+  padding-block-start: 0.9rem;
+  border-block-start: 1px solid var(--frame);
+}
+
+.home-section h2 {
+  margin: 0 0 0.65rem;
+  font: 400 1.125rem / 1.25 'BM Space', 'Courier New', monospace;
+  letter-spacing: normal;
+}
+
+.home-section h3 {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.home-empty,
+.journey p {
+  margin: 0.35rem 0 0;
+  line-height: 1.45;
+}
+
+.journey {
+  margin: 0.75rem 0 1.25rem 0.25rem;
+  padding: 0;
+  border-inline-start: 1px solid var(--frame);
+  list-style: none;
+}
+
+.journey li {
+  position: relative;
+  margin-inline-start: 1rem;
+  padding-block-end: 0.85rem;
+}
+
+.journey li + li {
+  padding-block-start: 0.85rem;
+  border-block-start: 1px solid var(--frame);
+}
+
+.journey li:last-child {
+  padding-block-end: 0;
+}
+
+.journey li::before {
+  position: absolute;
+  inset-block-start: 0.35rem;
+  inset-inline-start: calc(-1rem - 4px);
+  inline-size: 7px;
+  block-size: 7px;
+  background: #fff;
+  content: '';
+}
+
+.journey li + li::before {
+  inset-block-start: 1.2rem;
+}
+
+.journey time {
+  display: block;
+  margin-block-start: 0.2rem;
+}
+
+.journey-meta,
+.journey time,
+.photo-strip figcaption {
+  font-size: 0.875rem;
+}
+
+.journey-meta,
+.journey time {
+  color: #bcbcbc;
+}
+
+.journey .journey-focus {
+  margin-block-start: 0.15rem;
+}
+
+.photo-strip {
+  display: flex;
+  gap: 0.65rem;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  list-style: none;
+}
+
+.photo-strip li {
+  flex: 0 0 min(75%, 15rem);
+  scroll-snap-align: start;
+}
+
+.photo-strip figure {
+  margin: 0;
+}
+
+.photo-strip img {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.photo-strip figcaption {
+  margin-block-start: 0.35rem;
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 0.5rem;
+}
+
+.interests > div {
+  padding: 0.5rem;
+  border: 1px solid var(--frame);
+}
+
+.spotify-player {
+  display: block;
+  inline-size: 100%;
+  border: 0;
+}
+
+.home-stack > .timeline {
+  margin-block-start: 0;
+}
+
+.notes-main {
+  min-block-size: 0;
+}
+
+.notes-layout {
+  display: grid;
+  grid-template-columns: minmax(11rem, 17rem) minmax(0, 1fr);
+  block-size: 100%;
+}
+
+.notes-index {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+  border-inline-end: 1px solid var(--frame);
+}
+
+.notes-search,
+.note-reader {
+  padding: 1.25rem;
+}
+
+.notes-search {
+  border-block-end: 1px solid var(--frame);
+}
+
+.notes-search h1 {
+  font-size: 1.6875rem;
+  margin-block-end: 0.75rem;
+}
+
+.notes-search label {
+  display: block;
+  margin-block-end: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.notes-search input {
+  inline-size: 100%;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--frame);
+  border-radius: 0;
+  color: inherit;
+  background: #000;
+  font: inherit;
+}
+
+.note-list {
+  min-block-size: 0;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.note-list button {
+  display: grid;
+  gap: 0.25rem;
+  inline-size: 100%;
+  padding: 1.25rem;
+  border-block-end-color: var(--frame);
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+.note-list button[aria-current] {
+  color: #000;
+  background: #fff;
+}
+
+.note-list button:focus-visible {
+  outline-color: currentColor;
+  outline-offset: -4px;
+}
+
+.note-list span,
+.note-topic,
+.notes-empty {
+  font-size: 0.875rem;
+}
+
+.notes-empty {
+  margin: 1.25rem;
+}
+
+.note-reader {
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+
+.note-reader h2,
+.note-reader > p {
+  margin: 0;
+}
+
+.note-body {
+  max-inline-size: 70ch;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.timeline {
+  max-inline-size: 32rem;
+  margin-block-start: 1rem;
+  border: 1px solid var(--frame);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-block-end: 1px solid var(--frame);
+  font-size: 0.875rem;
+}
+
+.timeline-header h2 {
+  margin: 0;
+  font-size: inherit;
+}
+
+.timeline-header a {
+  color: inherit;
+}
+
+.timeline-feed {
+  min-block-size: 2.5rem;
+}
+
+.timeline-feed > a {
+  display: inline-block;
+  padding: 0.5rem 0.6rem;
+  color: inherit;
+}
+
+.timeline-feed iframe {
+  display: block;
+  max-inline-size: 100%;
+}
+
+.scene {
+  block-size: 100%;
+  margin: 0;
+  background: #111;
+}
+
+.scene-control {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 0;
+  border: 0;
+  background: #111;
+  cursor: crosshair;
+}
+
+.scene-control:focus-visible {
+  outline-offset: -5px;
+}
+
+canvas {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 44rem) and (orientation: portrait) {
+  .site {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    block-size: auto;
+    min-block-size: 100dvh;
+  }
+
+  .sidebar {
+    grid-template-rows: clamp(4.5rem, 12dvh, 6.5rem) auto;
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--frame);
+  }
+
+  .sidebar-art {
+    grid-row: 1;
+    border-block-start: 0;
+    border-block-end: 1px solid var(--frame);
+  }
+
+  .profile-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-block-start: 0.5rem;
+  }
+
+  .profile-picture {
+    inline-size: 2.75rem;
+    margin: 0;
+  }
+
+  .profile-account {
+    margin: 0;
+  }
+
+  .profile-details > p {
+    max-inline-size: none;
+    margin-block-start: 0.15rem;
+    font-size: 0.875rem;
+  }
+
+  .notes-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+
+  .notes-index {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--frame);
+  }
+
+  .note-list {
+    max-block-size: 12rem;
+  }
+}

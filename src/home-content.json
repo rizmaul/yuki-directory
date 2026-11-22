@@ -1,0 +1,34 @@
+{
+  "journey": [
+    {
+      "title": "Started a Japanese study journal",
+      "focus": "Study notes",
+      "date": "2026-11-01",
+      "description": "A place to collect vocabulary, grammar, and examples worth revisiting.",
+      "sample": true
+    },
+    {
+      "title": "Practiced everyday sentences",
+      "focus": "Grammar and reading",
+      "date": "2026-10-01",
+      "description": "Used short sentences to see how particles work in context.",
+      "sample": true
+    },
+    {
+      "title": "Learned hiragana and katakana",
+      "focus": "Kana practice",
+      "date": "2026-09-01",
+      "description": "Practiced recognizing and writing both kana sets.",
+      "sample": true
+    }
+  ],
+  "photos": [],
+  "interests": {
+    "Anime": ["Frieren: Beyond Journey’s End"],
+    "Games": ["Genshin Impact"],
+    "Light Novel": ["Ascendance of a Bookworm"],
+    "VTuber": ["Hoshimachi Suisei"],
+    "YouTuber": ["Japanese Ammo with Misa"]
+  },
+  "spotifyUrl": ""
+}
