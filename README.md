@@ -2,16 +2,15 @@
 
 A personal website starter built with React and Vite. Edit the homepage in `src/App.jsx` and its styles in `src/styles.css`.
 
-Add Japanese study notes to the array in `src/notes.json`. Each entry needs a unique `id`, a `title`, a `topic`, and a `body` string. Use `\n\n` for paragraph breaks. The list follows the file order.
+Add Japanese study notes to the array in `src/notes.json`. Each entry needs a unique `id`, a `title`, a `topic`, and a Markdown `body` string. Use `\n\n` for paragraph breaks. Headings, lists, links, quotes, code blocks, and tables are supported. The list follows the file order.
+
+Set `updatedAt` whenever you edit a note. Use an ISO 8601 timestamp with an offset, such as `2026-11-26T14:30:00+07:00`. The cards and reader display this time in WIB.
+
+Each note has a shareable page at `/notes/<id>/`. Use lowercase letters, numbers, and hyphens for IDs, and keep published IDs stable so existing links keep working. Vite builds separate HTML pages for Home, Notes, Book, and each note.
 
 ## Update the homepage
 
-Edit `src/home-content.json` to update the study timeline, gallery, interests, and Spotify player.
-
-- Replace the sample timeline entries with your own. Each entry takes a `title`, `description`, optional `focus`, and a `date` in `YYYY-MM-DD` format. Dates display as month and year. The timeline follows the file order, so put the newest entries first. Remove `sample` from real milestones.
-- Put photos in `public/photos/` and add a gallery entry for each one. Use `src` such as `/photos/kana-practice.jpg`, descriptive `alt` text, and an optional `caption`.
-- Add the names of your favorites to their category arrays under `interests`.
-- In Spotify, open a track, playlist, or album and choose **Share → Copy link**. Paste the `https://open.spotify.com/...` URL into `spotifyUrl`. Choose public or otherwise shareable content visitors can open. The embedded player uses the link directly. [Spotify Embed documentation](https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed)
+Add study timeline entries in `src/home-content.json` with a `title`, `description`, optional `focus`, and a `date` in `YYYY-MM` or `YYYY-MM-DD` format. Dates display as month and year, newest first.
 
 ## Local development
 

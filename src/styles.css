@@ -22,7 +22,9 @@ body {
   margin: 0;
 }
 
-button {
+button,
+.topbar a,
+.note-list a {
   padding: 0.35rem 0.65rem;
   border: 1px solid transparent;
   color: inherit;
@@ -30,13 +32,18 @@ button {
   font: inherit;
   letter-spacing: inherit;
   cursor: pointer;
+  text-decoration: none;
 }
 
-button:hover {
+button:hover,
+.topbar a:hover,
+.note-list a:hover {
   border-color: currentColor;
 }
 
-button:focus-visible {
+button:focus-visible,
+.topbar a:focus-visible,
+.note-list a:focus-visible {
   outline: 2px dashed #fff;
   outline-offset: 4px;
 }
@@ -44,7 +51,9 @@ button:focus-visible {
 .site {
   display: grid;
   grid-template-columns: clamp(12rem, 22vw, 21rem) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   block-size: 100dvh;
+  overflow: clip;
   border: 1px solid var(--frame);
 }
 
@@ -111,7 +120,7 @@ button:focus-visible {
 
 .profile-link:hover,
 .profile-link:focus-visible,
-.topbar button[aria-current] {
+.topbar a[aria-current] {
   color: #000;
   background: #fff;
 }
@@ -120,6 +129,7 @@ button:focus-visible {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   min-inline-size: 0;
+  min-block-size: 0;
 }
 
 .topbar {
@@ -132,15 +142,23 @@ button:focus-visible {
   font-size: 0.875rem;
 }
 
+.home,
+.notes-main {
+  min-block-size: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
 .home {
   display: flex;
   align-items: flex-start;
-  min-block-size: 0;
-  overflow: auto;
+  justify-content: center;
   padding: 1.25rem;
 }
 
 .intro {
+  inline-size: 100%;
+  min-inline-size: 0;
   max-inline-size: 45rem;
 }
 
@@ -182,14 +200,13 @@ button:focus-visible {
   font-size: 0.9375rem;
 }
 
-.home-empty,
 .journey p {
   margin: 0.35rem 0 0;
   line-height: 1.45;
 }
 
 .journey {
-  margin: 0.75rem 0 1.25rem 0.25rem;
+  margin: 0.75rem 0 0 0.25rem;
   padding: 0;
   border-inline-start: 1px solid var(--frame);
   list-style: none;
@@ -229,74 +246,13 @@ button:focus-visible {
   margin-block-start: 0.2rem;
 }
 
-.journey-meta,
-.journey time,
-.photo-strip figcaption {
-  font-size: 0.875rem;
-}
-
-.journey-meta,
 .journey time {
+  font-size: 0.875rem;
   color: #bcbcbc;
 }
 
 .journey .journey-focus {
   margin-block-start: 0.15rem;
-}
-
-.photo-strip {
-  display: flex;
-  gap: 0.65rem;
-  margin: 0.5rem 0 0;
-  padding: 0 0 0.4rem;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  list-style: none;
-}
-
-.photo-strip li {
-  flex: 0 0 min(75%, 15rem);
-  scroll-snap-align: start;
-}
-
-.photo-strip figure {
-  margin: 0;
-}
-
-.photo-strip img {
-  display: block;
-  inline-size: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.photo-strip figcaption {
-  margin-block-start: 0.35rem;
-}
-
-.interests {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
-  gap: 0.5rem;
-}
-
-.interests > div {
-  padding: 0.5rem;
-  border: 1px solid var(--frame);
-}
-
-.spotify-player {
-  display: block;
-  inline-size: 100%;
-  border: 0;
-}
-
-.home-stack > .timeline {
-  margin-block-start: 0;
-}
-
-.notes-main {
-  min-block-size: 0;
 }
 
 .notes-layout {
@@ -350,7 +306,7 @@ button:focus-visible {
   list-style: none;
 }
 
-.note-list button {
+.note-list a {
   display: grid;
   gap: 0.25rem;
   inline-size: 100%;
@@ -360,18 +316,20 @@ button:focus-visible {
   overflow-wrap: anywhere;
 }
 
-.note-list button[aria-current] {
+.note-list a[aria-current],
+.note-list a.note-preview-active {
   color: #000;
   background: #fff;
 }
 
-.note-list button:focus-visible {
+.note-list a:focus-visible {
   outline-color: currentColor;
   outline-offset: -4px;
 }
 
 .note-list span,
 .note-topic,
+.note-updated,
 .notes-empty {
   font-size: 0.875rem;
 }
@@ -385,54 +343,64 @@ button:focus-visible {
   overflow-wrap: anywhere;
 }
 
+.note-back {
+  display: none;
+}
+
 .note-reader h2,
 .note-reader > p {
   margin: 0;
 }
 
-.note-body {
+.note-reader article {
   max-inline-size: 70ch;
-  line-height: 1.55;
-  white-space: pre-wrap;
+  margin-inline: auto;
 }
 
-.timeline {
-  max-inline-size: 32rem;
-  margin-block-start: 1rem;
+.note-updated {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+.note-reader .note-updated {
+  margin-block-start: 0.35rem;
+}
+
+.note-body {
+  line-height: 1.55;
+}
+
+.note-body a {
+  color: inherit;
+}
+
+.note-body blockquote {
+  margin-inline: 0;
+  padding-inline-start: 0.85rem;
+  border-inline-start: 2px solid var(--frame);
+}
+
+.note-body pre {
+  overflow: auto;
+  padding: 0.75rem;
   border: 1px solid var(--frame);
 }
 
-.timeline-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.4rem 0.6rem;
-  border-block-end: 1px solid var(--frame);
-  font-size: 0.875rem;
-}
-
-.timeline-header h2 {
-  margin: 0;
-  font-size: inherit;
-}
-
-.timeline-header a {
-  color: inherit;
-}
-
-.timeline-feed {
-  min-block-size: 2.5rem;
-}
-
-.timeline-feed > a {
-  display: inline-block;
-  padding: 0.5rem 0.6rem;
-  color: inherit;
-}
-
-.timeline-feed iframe {
-  display: block;
+.note-body img {
   max-inline-size: 100%;
+  block-size: auto;
+}
+
+.note-body table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.note-body :is(th, td) {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--frame);
+  text-align: start;
 }
 
 .scene {
@@ -465,9 +433,7 @@ canvas {
 @media (max-width: 44rem) and (orientation: portrait) {
   .site {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
-    block-size: auto;
-    min-block-size: 100dvh;
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .sidebar {
@@ -506,15 +472,31 @@ canvas {
 
   .notes-layout {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
+    block-size: auto;
   }
 
   .notes-index {
     border-inline-end: 0;
-    border-block-end: 1px solid var(--frame);
   }
 
-  .note-list {
-    max-block-size: 12rem;
+  .notes-layout[data-view='list'] .note-reader,
+  .notes-layout[data-view='note'] .notes-index {
+    display: none;
+  }
+
+  .note-list a.note-preview-active {
+    color: inherit;
+    background: transparent;
+  }
+
+  .note-back {
+    display: inline-block;
+    margin-block-end: 1rem;
+    color: inherit;
+  }
+
+  .note-list,
+  .note-reader {
+    overflow: visible;
   }
 }

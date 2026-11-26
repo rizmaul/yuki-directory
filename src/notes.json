@@ -3,6 +3,14 @@
     "id": "welcome",
     "title": "Welcome",
     "topic": "Introduction",
+    "updatedAt": "2026-11-26T14:14:49+07:00",
     "body": "Welcome to my Japanese study notes. This is where I’ll collect vocabulary, grammar, and things I notice while reading or listening.\n\nI’ll use these notes to keep examples I can come back to as I learn."
+  },
+  {
+    "id": "topic-particle-wa",
+    "title": "The topic particle は",
+    "topic": "Sample · Grammar",
+    "updatedAt": "2026-11-26T14:14:49+07:00",
+    "body": "The particle **は** marks the topic of a sentence. When it’s used as a particle, it’s pronounced *wa*.\n\n### Example\n\n> 今日は雨です。  \n> It’s raining today.\n\n- **今日** means “today.”\n- **は** marks 今日 as the topic.\n- **雨です** tells us that it’s raining."
   }
 ]

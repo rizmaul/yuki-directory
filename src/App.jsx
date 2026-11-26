@@ -1,16 +1,13 @@
-﻿import { useState } from 'react'
-import PixelScene from './PixelScene.jsx'
+﻿import PixelScene from './PixelScene.jsx'
 import Home from './Home.jsx'
 import Notes from './Notes.jsx'
 import profilePicture from './profile.png'
 
 const profileUrl = 'https://x.com/yukibenkyouchuu'
 
-const pages = ['Home', 'Notes', 'Book']
+const pages = { Home: '/', Notes: '/notes/', Book: '/book/' }
 
-export default function App() {
-  const [page, setPage] = useState('Home')
-
+export default function App({ page, noteId }) {
   return (
     <div className="site">
       <aside className="sidebar" aria-labelledby="profile-name">
@@ -34,19 +31,19 @@ export default function App() {
 
       <div className="content">
         <nav className="topbar" aria-label="Main navigation">
-          {pages.map((name) => (
-            <button
+          {Object.entries(pages).map(([name, href]) => (
+            <a
               key={name}
-              onClick={() => setPage(name)}
+              href={href}
               aria-current={page === name ? 'page' : undefined}
             >
               {name}
-            </button>
+            </a>
           ))}
         </nav>
         <main className={page === 'Notes' ? 'notes-main' : 'home'}>
-          {page === 'Home' && <Home profileUrl={profileUrl} />}
-          {page === 'Notes' && <Notes />}
+          {page === 'Home' && <Home />}
+          {page === 'Notes' && <Notes noteId={noteId} />}
           {page === 'Book' && (
             <section className="intro" aria-labelledby="book-title">
               <h1 id="book-title">Book</h1>

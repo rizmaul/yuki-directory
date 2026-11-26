@@ -1,34 +1,41 @@
 {
   "journey": [
     {
-      "title": "Started a Japanese study journal",
-      "focus": "Study notes",
-      "date": "2026-11-01",
-      "description": "A place to collect vocabulary, grammar, and examples worth revisiting.",
-      "sample": true
+      "title": "Joined FAST OFFER N5 and N4 Class",
+      "date": "2024-08",
+      "description": "This is my first time seriously studying Japanese. Sure, previously I have studied hiragana, katakana, and some of the general phrases in high school, but I have actually never touch the grammar, kanji, sentence pattern and other stuff. It was EXTRA challenging since I'm also doing my university tasks."
     },
     {
-      "title": "Practiced everyday sentences",
-      "focus": "Grammar and reading",
-      "date": "2026-10-01",
-      "description": "Used short sentences to see how particles work in context.",
-      "sample": true
+      "title": "Took JLPT N4",
+      "date": "2025-07",
+      "description": "After a year of studying Japanese (including the on-and-off season of burnout 草), I finally took the N4 exam. Thankfully it was first-try."
     },
     {
-      "title": "Learned hiragana and katakana",
-      "focus": "Kana practice",
-      "date": "2026-09-01",
-      "description": "Practiced recognizing and writing both kana sets.",
-      "sample": true
+      "title": "Continuing FAST OFFER Class to N3",
+      "date": "2025-07",
+      "description": "After surviving the first year of class, I finally up my level to N3. This class was something. The spike of difficulty is quite there."
+    },
+    {
+      "title": "Preparing for Job Interview",
+      "date": "2025-08",
+      "description": "Unexpectedly, my career advisor from the organization take a liking into my progress and started recommending interview class session for job interview that may come."
+    },
+    {
+      "title": "Got my first job interview!!",
+      "date": "2025-11",
+      "description": "I can't believe I got my first Japanese company job interview at this early. The interview was honestly not as bad as I thought it would be. My explanation skill is not quite there yet, but I survive the grueling 2 rounds of interview. I didn't pass, though."
+    },
+    {
+      "title": "My second job interview and actually passed (?!)",
+      "date": "2025-12",
+      "description": "I still can't believe I got this offer and being a 内定者. Truly, a dream come true."
     }
   ],
-  "photos": [],
   "interests": {
     "Anime": ["Frieren: Beyond Journey’s End"],
     "Games": ["Genshin Impact"],
     "Light Novel": ["Ascendance of a Bookworm"],
     "VTuber": ["Hoshimachi Suisei"],
     "YouTuber": ["Japanese Ammo with Misa"]
-  },
-  "spotifyUrl": ""
+  }
 }
